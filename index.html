@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Extension</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>🏋️‍♀️ Fitness Reminder</h1>
+
+    <!--Streak-->
+    <section id="today-section">
+      <h2>🔥 Streak: <span id="streak-count">0</span> days</h2>
+
+      <h3>Today's Workouts</h3>
+      <ul id="today-workout-list">
+    <!-- Workouts for today will be inserted here via JS -->
+      </ul>
+      <button id="str-button">Finish Workouts</button>
+    </section>
+
+    </section>
+
+    <!-- 📆 Add Workout Form -->
+    <section id="add-workout">
+      <h2>Add a Workout</h2>
+      <form id="workout-form">
+        <label>
+          Workout Name:
+          <input type="text" id="workout-name" required />
+        </label>
+        <label>
+          Time:
+          <input type="time" id="workout-time" required />
+        </label>
+        <fieldset>
+          <legend>Days:</legend>
+          <label><input type="checkbox" value="0" /> Sun</label>
+          <label><input type="checkbox" value="1" /> Mon</label>
+          <label><input type="checkbox" value="2" /> Tue</label>
+          <label><input type="checkbox" value="3" /> Wed</label>
+          <label><input type="checkbox" value="4" /> Thu</label>
+          <label><input type="checkbox" value="5" /> Fri</label>
+          <label><input type="checkbox" value="6" /> Sat</label>
+        </fieldset>
+        <button id="add-button">Add Workout</button>
+      </form>
+    </section>
+
+    <!-- 📋 Scheduled Workouts -->
+    <section id="workout-list">
+      <h2>Scheduled Workouts</h2>
+      <ul id="reminder-list">
+        <li>
+          Honest
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
