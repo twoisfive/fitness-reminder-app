@@ -1,0 +1,127 @@
+/* Reset & base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #f1f1f1;
+  padding: 2rem;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: #f4a261;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #ffb266;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Section styling */
+section {
+  background: #1e1e1e;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.08);
+}
+
+/* Form elements */
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="time"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #f4a261;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #2b2b2b;
+  color: #f1f1f1;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: none;
+  padding: 0;
+}
+
+fieldset legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+fieldset label {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.3rem;
+}
+
+/* Button styling */
+button {
+  font-weight: bold;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #f4a261;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #e76f51;
+}
+
+/* Workout list styling */
+#reminder-list,
+#today-workout-list {
+  list-style: none;
+  padding: 0;
+}
+
+#reminder-list li,
+#today-workout-list li {
+  background-color: #2b2b2b;
+  border-left: 6px solid #f4a261;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(255, 165, 0, 0.08);
+}
+
+#reminder-list strong,
+#today-workout-list strong {
+  color: #ffb66e;
+}
+
+#reminder-list em,
+#today-workout-list em {
+  color: #ffc99f;
+}
