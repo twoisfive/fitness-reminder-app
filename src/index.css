@@ -125,3 +125,27 @@ button:hover {
 #today-workout-list em {
   color: #ffc99f;
 }
+
+.workout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #2b2b2b inset !important; /* your background color */
+  -webkit-text-fill-color: #f9f1e7 !important;       /* your text color */
+  font-size: 1rem !important;                        /* fix font size */
+  font-family: 'Segoe UI', sans-serif !important;    /* fix font */
+  font-weight: normal !important;                    /* optional */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: #332211 !important; /* example dark/orange bg */
+  color: inherit !important;
+  transition: background-color 5000s ease-in-out 0s; /* avoid flash */
+}
