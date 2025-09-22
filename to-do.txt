@@ -1,0 +1,15 @@
+okay what are the things that I need to do now:
+- make a widget
+- make the input require stuff before it adds
+- can I use a permission so battery usage doesnt block my stuff?
+
+
+How to make a widget:
+- Meta data for widget (in Widgetinfo.xml)
+- Widget layout
+- Connect in manifest xml
+
+- AppWidgetProvider -KT widget provide
+React Bridge: 
+- AppWidgetModule
+- AppWidgetPAckage - in main application

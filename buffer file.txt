@@ -1,0 +1,116 @@
+/*async function scheduleWorkoutNotification({ hour, minute, weekday }) {
+  // Create a channel (Android)
+  const channelId = await notifee.createChannel({
+    id: `${hour}-${minute}-${weekday}`,
+    name: 'Workout Alarms',
+    importance: AndroidImportance.MAX,
+  });
+
+  const now = new Date();
+  const today = now.getDay(); // 0 = Sunday, 1 = Monday, ... 6 = Saturday
+
+  // If scheduling for today but time already passed, move it to next week
+  let targetWeekday = weekday;
+  if (weekday - 1 === today) {
+    if (
+      hour < now.getHours() ||
+      (hour === now.getHours() && minute <= now.getMinutes())
+    ) {
+      targetWeekday = (weekday % 7) + 1; // push to next week
+    }
+  }
+
+  // Schedule for that weekday & time
+  await notifee.createTriggerNotification(
+    {
+      title: 'Workout Time! 💪',
+      body: 'Stay consistent with your streak!',
+      android: {
+        channelId,
+        category: AndroidCategory.ALARM,
+        fullScreenAction: { id: 'default' },
+        pressAction: { id: 'default' },
+      },
+    },
+    {
+      type: TriggerType.CALENDAR,
+      hour, // e.g. 7
+      minute, // e.g. 30
+      weekday: targetWeekday, // 1=Sunday, 2=Monday, ... 7=Saturday
+      repeatFrequency: RepeatFrequency.WEEKLY,
+      alarmManager: true, // ensures high priority (like alarm clock)
+    },
+  );
+} */
+
+
+
+// The working trigger notif:
+
+  useEffect(() => {
+    async function init() {
+      const settings = await notifee.requestPermission();
+      if (settings.authorizationStatus >= 1) {
+        console.log('✅ Notification permission granted');
+      } else {
+        console.log('❌ Permission denied');
+      }
+
+      await notifee.createChannel({
+        id: 'test-channel',
+        name: 'Test Channel',
+        importance: AndroidImportance.MAX, // heads-up
+      });
+
+      console.log('✅ Notification channel created');
+    }
+
+    init();
+  }, []);
+
+  // Step 2: Background event handler (needed for alarms/triggers)
+  useEffect(() => {
+    // Register background handler exactly once
+    notifee.onBackgroundEvent(async ({ type, detail }) => {
+      console.log('Background event fired:', type, detail.notification?.title);
+    });
+  }, []);
+
+  // Step 3: Display a heads-up notification immediately
+  const showNotificationNow = async () => {
+    await notifee.displayNotification({
+      title: 'Heads-up Notification',
+      body: 'This should pop up over other apps!',
+      android: {
+        channelId: 'test-channel',
+        category: 'alarm', // ensures heads-up
+        pressAction: { id: 'default' },
+      },
+    });
+    console.log('Notification displayed now');
+  };
+
+  const showTriggerNotification = async () => {
+    const now = new Date();
+    const triggerDate = new Date(now.getTime() + 5000); // 5 seconds
+
+    await notifee.createTriggerNotification(
+      {
+        title: 'Trigger Notification',
+        body: 'This should appear in 5 seconds',
+        android: {
+          channelId: 'test-channel',
+          category: 'alarm',
+          fullScreenAction: { id: 'default' },
+          pressAction: { id: 'default' },
+        },
+      },
+      {
+        type: TriggerType.TIMESTAMP,
+        timestamp: triggerDate.getTime(),
+        alarmManager: true,
+      },
+    );
+
+    console.log('Scheduled trigger notification');
+  };
