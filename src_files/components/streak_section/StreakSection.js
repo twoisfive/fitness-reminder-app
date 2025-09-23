@@ -5,6 +5,9 @@ import {
   streakReset,
 } from '../../utils/streakFunctions';
 import styles from '../../styles/globalStyles';
+import { NativeModules } from 'react-native';
+
+const { WorkoutWidgetModule } = NativeModules;
 
 const StreakSection = ({ myWorkouts }) => {
   const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -18,6 +21,13 @@ const StreakSection = ({ myWorkouts }) => {
   useEffect(() => {
     streakReset(setStreakCount);
   }, []);
+
+  useEffect(() => {
+    if (todayWorkouts.length > 0) {
+      firstWorkout = todayWorkouts[0];
+      WorkoutWidgetModule.updateWorkout(firstWorkout.name, firstWorkout.time);
+    }
+  }, [myWorkouts]); // Maybe I should put everything? but it wont fit
 
   return (
     <View>

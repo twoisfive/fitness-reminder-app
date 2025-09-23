@@ -2,7 +2,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@drawable/rounded_bg"
+    >
 
     <TextView
         android:id="@+id/widgetWorkoutName"
@@ -10,12 +12,14 @@
         android:layout_height="wrap_content"
         android:text="Workout Name"
         android:textSize="16sp"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/widgetWorkoutTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         android:text="Workout Time"
         android:textSize="14sp" />
 

@@ -43,8 +43,6 @@ async function addWorkoutObject(
   setMyWorkouts(updatedWorkouts);
   await AsyncStorage.setItem('myWorkouts', JSON.stringify(updatedWorkouts));
 
-  WorkoutWidgetModule.updateWorkout('Push Ups', '07:00 AM');
-
   //reset input fields
   setWoName('');
   setWoTime('');

@@ -3,11 +3,21 @@ okay what are the things that I need to do now:
 - make the input require stuff before it adds
 - can I use a permission so battery usage doesnt block my stuff?
 
+Widget needs:
+- Make it so that it updates based on what workout is available today, 
+not just updating every time I update the workout
+- Use todayWorkouts? - Right now it just shows the first one 
+- Put streak on widget
+
 
 How to make a widget:
 - Meta data for widget (in Widgetinfo.xml)
 - Widget layout
 - Connect in manifest xml
+- Where does widget connect the workout ID to the widget
+
+
+
 
 - AppWidgetProvider -KT widget provide
 React Bridge: 
